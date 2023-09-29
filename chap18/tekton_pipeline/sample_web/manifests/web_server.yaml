@@ -44,7 +44,7 @@ objects:
             app: "${NAME}"
         spec:
           containers:
-            - image: "${APP_IMAGE}@${APP_IMAGE_DIGEST}"
+            - image: "${APP_IMAGE}:latest"
               name: web
 parameters:
  - name: NAME
@@ -54,6 +54,3 @@ parameters:
  - name: APP_IMAGE
    required: true
    value: image-registry.openshift-image-registry.svc:5000/tekton-practice/my-web
- - name: APP_IMAGE_DIGEST
-   displayName: Application Image digest value
-   required: true
