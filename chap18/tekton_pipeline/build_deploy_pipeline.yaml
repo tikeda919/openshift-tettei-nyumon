@@ -62,13 +62,13 @@ spec:
             # 参考用出力: image-digestが前のTaskで生成されていることを確認
             ls -l
             # 参考用出力: image-digestを確認
-            cat image-digest
+            # cat image-digest
 
             # テンプレートを展開してデプロイ
             oc process -f $(params.context)/$(params.manifest-dir) \
-              -p APP_IMAGE=$(params.image) \
-              -p APP_IMAGE_DIGEST=`cat image-digest` \
+               -p APP_IMAGE=$(params.image) \
               | oc apply -f -
+            #oc new-app $(params.image):$(params.image-tag)
       workspaces:
         - name: source
           workspace: shared-workspace
